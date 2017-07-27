@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        title= `${title} | ${h.siteName}`
+        link(rel='stylesheet', href='/dist/style.css')
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+    body
+        block header
+            nav.nav
+                li.nav__link
+                    a(href='/') Home
+                if user
+                    li.nav__link
+                        p Hello #{user.displayName}
+                    li.nav__link
+                        a(href='/mypolls') My Polls
+                    li.nav__link
+                        a(href='/newpoll') New Poll
+                    li.nav__link
+                        a(href='/logout') Log out
+                else
+                    li.nav__link
+                        a(href='/auth/twitter') Login with twitter
+        block content
+
+        block scripts
+            script(src="/dist/App.bundle.js")

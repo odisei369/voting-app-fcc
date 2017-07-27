@@ -1,0 +1,10 @@
+extends layout
+
+include mixins/_poolCard
+
+block content
+    h2= title
+    pre = h.
+    pre= h.dump(polls)
+    each poll in polls
+        +pollCard(poll)

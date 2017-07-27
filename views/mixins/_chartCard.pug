@@ -1,0 +1,11 @@
+mixin chartCard(poll)
+    input(type="hidden", id="poll-json", value= JSON.stringify(poll) )
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js")
+    canvas#chart(width='400' height='400')
+    script.
+        var poll = JSON.parse(document.getElementById('poll-json').value)
+        var ctx = document.querySelector('#chart')
+        var labels = poll.options.map((elem) => elem.option)
+        var count = poll.options.map((elem) => elem.count)
+        var data = { labels, datasets: [{label: 'Dataset', data: count, backgroundColor: 'rgb(255, 99, 132)'}]}
+        var myChart = new Chart(ctx, {type: 'doughnut', data})

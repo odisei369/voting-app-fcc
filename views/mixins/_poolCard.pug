@@ -1,0 +1,13 @@
+mixin pollCard(poll)
+    .pollCard
+       .pollCard__elem= poll.title
+       .pollCard__elem
+           if (user && user.id == poll.author)
+               a(href=`/delete/${poll._id}`) Delete
+       .pollCard__elem
+           span= `Number of options: ${poll.options.length}`
+       .pollCard__elem
+           - const answers = poll.options.reduce((sum, value) => {return sum + value.count;}, 0);
+           span= `Number of answers: ${answers}`
+       .pollCard__elem
+           a(href=`/poll/${poll._id}`) Participate

@@ -1,0 +1,12 @@
+extends layout
+
+include mixins/_participateCard
+include mixins/_shareCard
+include mixins/_chartCard
+
+block content
+    +participate(poll)
+    +shareCard(poll)
+    +chartCard(poll)
+    pre= poll
+    pre= process.env.HOST

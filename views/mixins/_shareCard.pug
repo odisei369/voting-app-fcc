@@ -1,0 +1,4 @@
+mixin shareCard(poll)
+    - url = encodeURIComponent(`${process.env.HOST}:${process.env.PORT}/poll/${poll._id}`)
+    - text = encodeURIComponent(`Voting app || ${poll.title} ||`)
+    a(href=`https://twitter.com/intent/tweet?url=${url}&text=${text}`) Share on twitter

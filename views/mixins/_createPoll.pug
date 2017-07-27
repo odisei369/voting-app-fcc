@@ -1,0 +1,7 @@
+mixin createPoll()
+    form(action='/add' method='POST')
+        label(for='title') Title
+        input(type='text' name='title' required)
+        label(for='options') Options(separated by line)
+        textarea(name='options')
+        input(type='submit' value='Make!' class='button')

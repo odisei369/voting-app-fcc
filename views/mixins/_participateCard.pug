@@ -1,0 +1,8 @@
+mixin participate(poll)
+    form(action=`/poll/${poll._id}` method='POST')
+        label(for='option') Option (write your's or choose from defined)
+        input(type='text' name='option' list='options' required autocomplete='off')
+        datalist(id='options')
+            each option in poll.options
+                option #{option.option}
+        input(type='submit' value='Choose' class='button')
